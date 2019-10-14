@@ -1,0 +1,115 @@
+<div id="Windowscalc">
+ <form>
+ <div id="Windows">
+ </div>
+ <div id="config_site">
+ </div>
+ </form>
+</div>
+
+
+<?
+if (isset($_POST["option"])) {
+ $option = $_POST["option"];
+  
+   if ($option == 1) {
+     print '
+        <h3>Подсчет стоимости окон</h3>
+         <div id="size">
+
+
+
+<p><strong>
+		  Размер окна:</strong></p>
+          <table border="0" cellpadding="0" cellspacing="0">
+              <tr>
+                <td width="270px">Высота окна (1см)</td>
+			
+                <td><input id="" name="" size="1" type="text" value="0"> 10грн.</td>
+              </tr>
+          </table>
+
+          <table border="0" cellpadding="0" cellspacing="0">
+              <tr>
+                <td width="270px">Ширина окна (1см)</td>
+			
+                <td><input id="" name="" size="1" type="text" value="0"> 10грн.</td>
+              </tr>
+          </table>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<p><strong>Конфигурация:</strong></p>
+          <p><select id="select">
+           <option value="0">Не использовать</option>
+           <option value="100">глухое, (100 грн.)</option>
+           <option value="120">С одной открывающейся створкой (120 грн.)</option>
+           <option value="130">С двумя открывающимися створками (130 грн.)</option>
+           <option value="130">С двумя открывающимися створками (130 грн.)</option>
+           <option value="125">Балконный блок (125 грн.)</option>
+           <option value="133">Французский балконный блок (133 грн.)</option>
+           <option value="148">Одностворчатые двери (148 грн.)</option>
+           <option value="122">Штульповые двери (122 грн.)</option>
+          </select></p>
+
+
+<p><strong>Профиль:</strong></p>
+          <p><select id="select">
+           <option value="0">Не использовать</option>
+           <option value="70">Goodwin WHS 72 (70 грн.)</option>
+           <option value="50">Goodwin WHS 60 ( 50 грн.)</option>
+           <option value="30">Goodwin Softline (30 грн.)</option>
+           <option value="33">Goodwin Softline-82 (33 грн.)</option>
+           <option value="25">Goodwin Proline 70 (25 грн.)</option>
+           <option value="101">Goodwin Euroline Plus (101 грн.)</option>
+           <option value="100">value="122">Goodwin TOPLINE (100 грн.)</option>
+           <option value="105">Goodwin Euroline (105 грн.)</option>
+          </select></p>
+
+
+
+<p><strong>Тип стеклопакета:</strong></p>
+          <p><select id="radiobutton">
+           <option value="50">Однокамерный (50 грн.)</option>
+           <option value="70">Двухкамерный (70 грн.)</option>
+           <option value="65">Однокамерный ЭНЕРГО (65 грн.)</option>
+           <option value="90">Двухкамерный ЭНЕРГО (90 грн.)</option>
+           <option value="120">Мультифункциональный  (120 грн.)</option>
+           <option value="200">ClimaGuard Solar (200 грн.)</option>
+          
+       
+		  
+		 
+
+
+<p><strong>Дополнительные услуги:</strong></p>
+<p><select id="support">
+          <p><input type="checkbox" name="" value="30">Монтаж (30 грн.) <br>
+          <p><input type="checkbox" name="" value="23">Установка отлива (23 грн.) <br>
+          <p><input type="checkbox" name="" value="25">Установка подоконника (25 грн.) <br>
+          <p><input type="checkbox" name="" value="30">Установка козырька (30 грн.) <br>
+           <p><input type="checkbox" name="" value="22">Москитная сетка (22 грн.) <br>
+               
+
+
+
+
+
+
+
+ 
+  
+
+
+
+
+
