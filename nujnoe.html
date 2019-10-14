@@ -1,3 +1,82 @@
+<?php
+$confs = [
+           100 => "Глухое",
+           120 => "С одной створ",
+           130 => "С двумя открывающимися створками",
+           125 =>""Балконный блок " ,
+           133 => ""Французский балконный блок" ,
+           148 =>"Одностворчатые двери",
+           122 =>"Штульповые двери"
+		  ];
+
+    
+
+
+
+
+$confs = [
+           70 => "Goodwin WHS 72" 
+           50 => "Goodwin WHS 60" , 
+		   30 => "Goodwin Softline" ,
+		   33 => "Goodwin Softline-82",
+           25 => "Goodwin Proline 70" ,
+           101 => "Goodwin Euroline Plus" ,
+		   100 => "Goodwin TOPLINE" ,
+		   105 =>"Goodwin Euroline"
+		  ];
+		   
+		   
+		   
+		   
+$confs = [
+		  50 =>"Однокамерный",
+		  70 =>"Двухкамерный",
+		  65 =>"Однокамерный ЭНЕРГО",
+		  90 =>"Двухкамерный ЭНЕРГО",
+		  120 =>"Мультифункциональный",
+		  200 =>"ClimaGuard Solar" 
+		 ];
+
+		   
+		   
+		 
+		   [
+    'dop_montaj' => [
+        'name' => "Монтаж",
+        'price' => 30,
+    ],
+	[
+    'dop_montaj' => [
+        'name' => "Установка отлива",
+        'price' => 23,
+    ],
+	[
+    'dop_montaj' => [
+        'name' => "Установка подоконника",
+        'price' => 25,
+    ],
+	[
+    'dop_montaj' => [
+        'name' => "Установка козырька",
+        'price' => 30,
+    ],
+		 [
+    'dop_montaj' => [
+        'name' => "Москитная сетка",
+        'price' => 22,
+    ],  
+
+
+
+
+
+<html>
+html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Lab1-windows</title>
+<body>
+
 <div id="Windowscalc">
  <form>
  <div id="Windows">
@@ -8,16 +87,103 @@
 </div>
 
 
-<?
-if (isset($_POST["option"])) {
- $option = $_POST["option"];
+
   
-   if ($option == 1) {
-     print '
+   '
+	
+	 
+	 
+	 
+
+	   <form class="configuration"  method="post" action="https://http:index.php
+            <div class="field">
+                
+				<label>Конфигурация</label>
+
+                <select name="Conf">
+				
+				</html>
+                   
+				   <?php
+                    foreach($confs as $price=>$type){?>
+                        <option value="<?php echo $price;?>"><?php echo $type;?></option>
+                    <?php }?>
+                </select>
+            </div>
+
+            <div class="two fields">
+                <div class="field">
+                    <label>Ширина(см)</label>
+                    <input type="number" name="Width" placeholder="Width">
+                </div>
+                <div class="field">
+                    <label>Высота(см)</label>
+                    <input type="number" name="Height" placeholder="Height">
+                </div>
+            </div>
+			
+		<div class="field">
+                <label>Профиль</label>
+			<select class="prof" name="Prof">
+                    <?php
+                    foreach($profs as $price=>$type){?>
+                        <option value="<?php echo $price;?>">
+						<?php echo $type;?>
+						</option>
+						<?php}?>
+			
+			</select>
+			<div class="grou field">
+                <label>Тип стеклопакета:</label>
+				
+				<?php
+                foreach($dzens as $price=>$type){?>
+                    <div class="field">
+                        <div class="ui radio checkbox">
+                            <input name="dzen" type="radio" value="<?php echo $price;?>">
+                            <label><?php echo $type;?></label>
+                        </div>
+                    </div>
+                <?php }?>
+
+                <div class="grou filed">
+                    <label>Дополнительные услуги</label>
+                </div><?php foreach ($checks as $key=>$type){?>
+                 <div class="field">
+                    <div class="ui checkbox">
+                        <input type="checkbox" name="<?php echo $key;?>" value="<?php echo $type['price'];?>>" checked>
+                        <label><?php echo $type['name'],$type['price'], ' грн'; ?></label>
+                    </div>
+                </div>
+               <?php }?>
+            </div>
+            <button  class="pform" type="submit">
+                Сделать заказ
+            </button>
+        </form>													
+        </p>
+    </div>
+</div>
+</body>
+</html>
+<?php
+if (!empty($_POST["Conf"]) && !empty($_POST["Width"]) && is_numeric($_POST["Width"]) && is_numeric($_POST["Height"]) && !empty($_POST["Height"])
+    && !empty($_POST["Prof"]) && !empty($_POST["dzen"])) {
+        $Sum = $_POST["Width"] * $_POST["Height"] + $_POST["Conf"] + $_POST["dzen"] + $_POST["Prof"] +
+            $_POST["a"] + $_POST["b"] + $_POST["c"] + $_POST["d"] + $_POST["e"];
+        ?>
+
+
+
+
+
+
+			
+			
         <h3>Подсчет стоимости окон</h3>
          <div id="size">
 
-
+ 
 
 <p><strong>
 		  Размер окна:</strong></p>
@@ -41,50 +207,48 @@ if (isset($_POST["option"])) {
 
 
 
-
-
-
-
-
-
-
 <p><strong>Конфигурация:</strong></p>
-          <p><select id="select">
-           <option value="0">Не использовать</option>
+         <p><select id="select">
+           <option value="0">Не выбрано</option>
            <option value="100">глухое, (100 грн.)</option>
            <option value="120">С одной открывающейся створкой (120 грн.)</option>
-           <option value="130">С двумя открывающимися створками (130 грн.)</option>
            <option value="130">С двумя открывающимися створками (130 грн.)</option>
            <option value="125">Балконный блок (125 грн.)</option>
            <option value="133">Французский балконный блок (133 грн.)</option>
            <option value="148">Одностворчатые двери (148 грн.)</option>
            <option value="122">Штульповые двери (122 грн.)</option>
-          </select></p>
+           </select></p>
+
 
 
 <p><strong>Профиль:</strong></p>
-          <p><select id="select">
-           <option value="0">Не использовать</option>
+         <p><select id="select">
+           <option value="0">Не выбрано</option>
            <option value="70">Goodwin WHS 72 (70 грн.)</option>
            <option value="50">Goodwin WHS 60 ( 50 грн.)</option>
            <option value="30">Goodwin Softline (30 грн.)</option>
            <option value="33">Goodwin Softline-82 (33 грн.)</option>
            <option value="25">Goodwin Proline 70 (25 грн.)</option>
            <option value="101">Goodwin Euroline Plus (101 грн.)</option>
-           <option value="100">value="122">Goodwin TOPLINE (100 грн.)</option>
+           <option value="100">Goodwin TOPLINE (100 грн.)</option>
            <option value="105">Goodwin Euroline (105 грн.)</option>
-          </select></p>
+           </select></p>
 
 
 
 <p><strong>Тип стеклопакета:</strong></p>
-          <p><select id="radiobutton">
+         <p><select id="radiobutton">
+           <option value="0">Не выбрано</option>
            <option value="50">Однокамерный (50 грн.)</option>
            <option value="70">Двухкамерный (70 грн.)</option>
            <option value="65">Однокамерный ЭНЕРГО (65 грн.)</option>
            <option value="90">Двухкамерный ЭНЕРГО (90 грн.)</option>
            <option value="120">Мультифункциональный  (120 грн.)</option>
            <option value="200">ClimaGuard Solar (200 грн.)</option>
+
+
+
+
           
        
 		  
@@ -92,13 +256,100 @@ if (isset($_POST["option"])) {
 
 
 <p><strong>Дополнительные услуги:</strong></p>
-<p><select id="support">
+        <p><select id="support">
           <p><input type="checkbox" name="" value="30">Монтаж (30 грн.) <br>
           <p><input type="checkbox" name="" value="23">Установка отлива (23 грн.) <br>
           <p><input type="checkbox" name="" value="25">Установка подоконника (25 грн.) <br>
           <p><input type="checkbox" name="" value="30">Установка козырька (30 грн.) <br>
-           <p><input type="checkbox" name="" value="22">Москитная сетка (22 грн.) <br>
+          <p><input type="checkbox" name="" value="22">Москитная сетка (22 грн.) <br>
                
+   
+
+
+
+
+
+
+$confs = [
+           100 => "Глухое",
+           120 => "С одной створ",
+           130 => "С двумя открывающимися створками",
+           125 =>""Балконный блок " ,
+           133 => ""Французский балконный блок" ,
+           148 =>"Одностворчатые двери",
+           122 =>"Штульповые двери"
+		  ];
+
+    
+
+
+
+
+$confs = [
+           70 => "Goodwin WHS 72" 
+           50 => "Goodwin WHS 60" , 
+		   30 => "Goodwin Softline" ,
+		   33 => "Goodwin Softline-82",
+           25 => "Goodwin Proline 70" ,
+           101 => "Goodwin Euroline Plus" ,
+		   100 => "Goodwin TOPLINE" ,
+		   105 =>"Goodwin Euroline"
+		  ];
+		   
+		   
+		   
+		   
+$confs = [
+		  50 =>"Однокамерный",
+		  70=>"Двухкамерный",
+		  65=>"Однокамерный ЭНЕРГО",
+		  90 =>"Двухкамерный ЭНЕРГО",
+		  120 =>"Мультифункциональный",
+		  200 =>"ClimaGuard Solar" 
+		 ];
+
+		   
+		   
+		 
+		   [
+    'dop_montaj' => [
+        'name' => "Монтаж",
+        'price' => 30,
+    ],
+	[
+    'dop_montaj' => [
+        'name' => "Установка отлива",
+        'price' => 23,
+    ],
+	[
+    'dop_montaj' => [
+        'name' => "Установка подоконника",
+        'price' => 25,
+    ],
+	[
+    'dop_montaj' => [
+        'name' => "Установка козырька",
+        'price' => 30,
+    ],
+		 [
+    'dop_montaj' => [
+        'name' => "Москитная сетка",
+        'price' => 22,
+    ],  
+		   
+		   
+		   
+		   
+		   
+		   
+		  	
+
+
+
+
+
+
+
 
 
 
